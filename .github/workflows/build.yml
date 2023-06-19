@@ -11,7 +11,7 @@ jobs:
     - run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
     - run: |
         sudo apt-get update && sudo apt-get install -y gcc-arm-linux-gnueabi binutils build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq
-    - run: "make -j128"
+    - run: "make -j1"
       env:
         ARCH: "arm"
         CROSS_COMPILE: "arm-linux-gnueabi-"
