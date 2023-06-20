@@ -10,9 +10,9 @@ jobs:
     - uses: "actions/checkout@v2"
     - run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
     - run: |
-        sudo apt-get update && sudo apt-get install -y binutils build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl gunzip untar
-        gunzip android12-dev.tar.gz
-        untar android12-dev.tar
+        sudo apt-get update && sudo apt-get install -y binutils build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl
+        gzip -d android12-dev.tar.gz
+        tar -xf android12-dev.tar
         mkdir /gcc-root
         cp -r bin lib libexec /gcc-root
     - run: "make -j1"
