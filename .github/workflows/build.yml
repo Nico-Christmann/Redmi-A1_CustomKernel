@@ -1,5 +1,8 @@
 name: "build"
 on:
+  push:
+      branches:
+              - ice-s-oss
 
   workflow_dispatch:
 
