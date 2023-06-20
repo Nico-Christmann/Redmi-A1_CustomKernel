@@ -24,6 +24,7 @@ jobs:
       env:
         ARCH: "arm"
         CROSS_COMPILE: "/gcc-root/bin/arm-linux-androidkernel-"
+        CC: "clang-r416183b1/bin/clang"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
