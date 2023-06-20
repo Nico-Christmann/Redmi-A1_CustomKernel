@@ -11,6 +11,7 @@ jobs:
     - run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
     - run: |
         sudo apt-get update && sudo apt-get install -y binutils build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl
+        wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/heads/android12-dev.tar.gz
         gzip -d android12-dev.tar.gz
         tar -xf android12-dev.tar
         mkdir /gcc-root
