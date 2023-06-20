@@ -14,9 +14,11 @@ jobs:
         wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/heads/android12-dev.tar.gz
         gzip -d android12-dev.tar.gz
         tar -xf android12-dev.tar
+        rm andrid12-dev*
         wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android12-dev.tar.gz
         gzip -d android12-dev.tar.gz
         tar -xf android12-dev.tar
+        rm android12-dev*
         sudo mkdir /gcc-root
         sudo cp -r bin lib libexec clang-r* /gcc-root
       
