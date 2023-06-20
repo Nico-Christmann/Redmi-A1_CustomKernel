@@ -16,7 +16,7 @@ jobs:
         tar -xf android12-dev.tar
         sudo mkdir /gcc-root
         sudo cp -r bin lib libexec /gcc-root
-        sudo ln -s /gcc-root/bin/arm-linux-gnueabi-cpp /gcc-root/bin/arm-linux-androidkernel-gcc
+        sudo ln -s /gcc-root/bin/arm-linux-androideabi-cpp /gcc-root/bin/arm-linux-androidkernel-gcc
     - run: "make -j1"
       env:
         ARCH: "arm"
