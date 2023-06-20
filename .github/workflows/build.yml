@@ -26,7 +26,7 @@ jobs:
     - run: "make -j1"
       env:
         ARCH: "arm"
-        CROSS_COMPILE: "/gcc-root/bin/arm-linux-androidkernell"
+        CROSS_COMPILE: "/gcc-root/bin/arm-linux-androidkernel-"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
