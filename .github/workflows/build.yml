@@ -14,9 +14,12 @@ jobs:
         wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/heads/android12-dev.tar.gz
         gzip -d android12-dev.tar.gz
         tar -xf android12-dev.tar
+        wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android12-dev.tar.gz
+        gzip -d android12-dev.tar.gz
+        tar -xf android12-dev.tar
         sudo mkdir /gcc-root
-        sudo cp -r bin lib libexec /gcc-root
-        sudo ln -s /gcc-root/bin/arm-linux-androideabi-cpp /gcc-root/bin/arm-linux-androidkernel-gcc
+        sudo cp -r bin lib libexec clang-r* /gcc-root
+      
     - run: "make -j1"
       env:
         ARCH: "arm"
