@@ -19,7 +19,8 @@ jobs:
         gzip -d android12-dev.tar.gz
         tar -xf android12-dev.tar
         rm android12-dev*
-        sudo cp -r bin lib libexec clang-r416183b1/* /
+        sudo cp -r bin lib libexec /
+        sudo cp clang-r416183b1/* /
       
     - run: "make -j1"
       env:
