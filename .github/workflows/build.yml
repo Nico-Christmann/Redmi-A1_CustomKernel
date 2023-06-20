@@ -21,12 +21,12 @@ jobs:
         rm android12-dev*
         sudo mkdir /gcc-root
         sudo cp -r bin lib libexec clang-r* /gcc-root
+        sudo ln -s /gcc-root/clang-r416183b1/bin/clang /gcc-root/bin/arm-linux-androidkernel-gcc
       
     - run: "make -j1"
       env:
         ARCH: "arm"
-        CROSS_COMPILE: "/gcc-root/bin/arm-linux-androidkernel-"
-        CC: "/gcc-root/clang-r416183b1/bin/clang"
+        CROSS_COMPILE: "/gcc-root/bin/arm-linux-androidkernell"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
