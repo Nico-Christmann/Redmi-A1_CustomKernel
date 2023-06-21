@@ -18,7 +18,7 @@ jobs:
       env:
         ARCH: "arm"
         CROSS_COMPILE: "arm-linux-gnueabi-"
-        CC: "clang"
+        KC: "clang"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
