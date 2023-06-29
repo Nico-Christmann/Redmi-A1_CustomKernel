@@ -24,3 +24,5 @@ jobs:
         title: "Development build ${{ env.SHORT_SHA }}"
         files: |
           arch/arm/boot/Image
+          arch/arm/boot/zImage
+          arch/arm/boot/Image.gz
