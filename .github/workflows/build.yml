@@ -17,7 +17,7 @@ jobs:
     - run: "PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH make -j1"
       env:
         ARCH: "arm"
-        CROSS_COMPILE: "arm-linux-gnueabi-"
+        CROSS_COMPILE: "armv7a-unknown-linux-eabi"
         CC: "clang"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
