@@ -15,10 +15,10 @@ jobs:
     - run: |
         wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz && xzcat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | tar -x && sudo apt-get update && sudo apt-get install -y binutils gcc-arm-linux-gnueabi build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl
         ls clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin
-    - run: "#PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH make -j1"
+    - run: "PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH make -j1"
       env:
         ARCH: "arm"
-        CROSS_COMPILE: "armv7a-unknown-linux-eabi"
+        CROSS_COMPILE: ""
         CC: "clang"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
@@ -27,4 +27,4 @@ jobs:
         prerelease: true
         title: "Development build ${{ env.SHORT_SHA }}"
         files: |
-          arch/arm/boot/zImage
+          arch/arm/boot/Image
