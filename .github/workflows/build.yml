@@ -13,7 +13,7 @@ jobs:
     - uses: "actions/checkout@v2"
     - run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
     - run: |
-        curl https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | zcat | tar -x && sudo apt-get update && sudo apt-get install -y binutils build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl
+        curl https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | xzcat | tar -x && sudo apt-get update && sudo apt-get install -y binutils build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl
     - run: "PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH make -j512"
       env:
         ARCH: "arm"
