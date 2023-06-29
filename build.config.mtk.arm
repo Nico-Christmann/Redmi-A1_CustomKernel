@@ -4,9 +4,9 @@ CROSS_COMPILE=arm-linux-gnueabi-
 LLVM=1
 
 # DEFCONFIG=defconfig
-KERNEL_DIR=kernel-4.19
-CLANG_PREBUILT_BIN=prebuilts/clang/host/linux-x86/clang-r383902/bin
-LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=prebuilts/gas/linux-x86
+KERNEL_DIR=.
+CLANG_PREBUILT_BIN=clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin
+LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin
 # for check scripts
 CC=clang
 LD=ld.lld
