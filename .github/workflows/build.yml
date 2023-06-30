@@ -15,7 +15,7 @@ jobs:
     - run: |
         wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz && xzcat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | tar -x && sudo apt-get update && sudo apt-get install -y binutils gcc-arm-linux-gnueabi build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl
         ls clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin
-    - run: "PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=. CLANG_PREBUILT_BIN=clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip make -j1 -i"
+    - run: "PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=. CLANG_PREBUILT_BIN=clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip make vmlinux Image zImage-j1 -i"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
