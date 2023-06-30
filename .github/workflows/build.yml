@@ -15,7 +15,11 @@ jobs:
     - run: |
         wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz && xzcat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | tar -x && sudo apt-get update && sudo apt-get install -y binutils gcc-arm-linux-gnueabi build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl
         ls clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin
-    - run: "PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=/home/runner/work CLANG_PREBUILT_BIN=clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=arm-linux-gnueabi-ar NM=arm-linux-gnueabi-nm OBJCOPY=arm-linux-gnueabi-objcopy OBJDUMP=arm-linux-gnueabi-objdump READELF=arm-linux-gnueabi-readelf OBJSIZE=arm-linux-gnueabi-size STRIP=arm-linux-gnueabi-strip make ice_defconfig vmlinux Image zImage -j$(nproc) -i -k"
+        wget https://github.com/mediatek-android-development/android_kernel_mediatek_mt6761-62-4.9/archive/refs/heads/master.zip
+        unzip master.zip
+        cp -rn android_kernel_mediatek_mt6761-62-4.9/* .
+        
+    - run: "PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- LLVM=0 KERNEL_DIR=/home/runner/work CLANG_PREBUILT_BIN=clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=arm-linux-gnueabi-ar NM=arm-linux-gnueabi-nm OBJCOPY=arm-linux-gnueabi-objcopy OBJDUMP=arm-linux-gnueabi-objdump READELF=arm-linux-gnueabi-readelf OBJSIZE=arm-linux-gnueabi-size STRIP=arm-linux-gnueabi-strip make vmlinux Image zImage -j$(nproc) -i -k"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
