@@ -13,7 +13,7 @@ jobs:
     - uses: "actions/checkout@v2"
     - run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
     - run: |
-        wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz && xzcat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | tar -x && sudo apt-get update && sudo apt-get install -y binutils gcc-arm-linux-gnueabi build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl unzip gunzip
+        wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz && xzcat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | tar -x && sudo apt-get update && sudo apt-get install -y binutils gcc-arm-linux-gnueabi build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl unzip
         ls clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin
         wget https://github.com/mediatek-android-development/android_kernel_mediatek_mt6761-62-4.9/archive/refs/heads/master.zip
         unzip master.zip
