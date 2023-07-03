@@ -10,7 +10,7 @@
 #include <linux/spinlock.h>
 #include <linux/io.h>
 
-#include <mtk_idle_smc.h>
+#include "mtk_idle_smc.h"
 #include <mt-plat/sync_write.h>
 #include <mt-plat/aee.h>
 
