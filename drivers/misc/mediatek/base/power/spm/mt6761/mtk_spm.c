@@ -17,9 +17,9 @@
 #include <linux/rtc.h>
 #include <linux/suspend.h>
 
-#include "mtk_cpuidle.h"	/* mtk_cpuidle_init */
-#include "mtk_sleep.h"	    /* slp_module_init */
-#include "mt-plat/aee.h"	/* aee_xxx */
+#include <mtk_cpuidle.h>	/* mtk_cpuidle_init */
+#include <mtk_sleep.h>	    /* slp_module_init */
+#include <mt-plat/aee.h>	/* aee_xxx */
 
 #include "mtk_spm_irq.h"
 #include "mtk_spm_internal.h"
@@ -31,8 +31,6 @@
 #include <linux/regmap.h>
 #include <linux/mfd/mt6357/registers.h>
 #include <linux/mfd/mt6357/core.h>
-
-#include "../../../../dvfsrc/dvfsrc-debug-v79.h"
 
 /* PMICWRAP Reg */
 #define PMIC_RG_TOP2_RSV0_ADDR             (0x15A)
