@@ -367,6 +367,11 @@ bool mtk_spm_base_ready(void)
 	return spm_base != 0;
 }
 
+static u32 spm_read(struct mtk_dvfsrc *dvfs, u32 reg)
+{
+	return readl(dvfs->spm_regs + dvfs->dvd->config->spm_regs[reg]);
+}
+
 unsigned int mtk_spm_read_register(int register_index)
 {
 	if (register_index == SPM_PWRSTA)
