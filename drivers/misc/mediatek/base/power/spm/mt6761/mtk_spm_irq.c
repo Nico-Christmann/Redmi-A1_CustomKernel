@@ -15,7 +15,7 @@
 #include <linux/of_irq.h>
 #include <linux/of_address.h>
 
-#include "../common/mtk_spm.h"
+#include "../../include/mtk_spm.h"
 #include "mtk_spm_irq.h"
 #include "mtk_spm_internal.h"
 //#include <mt-plat/mtk_cirq.h>
