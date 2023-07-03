@@ -32,6 +32,8 @@
 #include <linux/mfd/mt6357/registers.h>
 #include <linux/mfd/mt6357/core.h>
 
+#include "../../../../dvfsrc/dvfsrc-debug-v79.h"
+
 /* PMICWRAP Reg */
 #define PMIC_RG_TOP2_RSV0_ADDR             (0x15A)
 
@@ -367,18 +369,13 @@ bool mtk_spm_base_ready(void)
 	return spm_base != 0;
 }
 
-static u32 spm_read(struct mtk_dvfsrc *dvfs, u32 reg);
-{
-	return readl(dvfs->spm_regs + dvfs->dvd->config->spm_regs[reg]);
-}
-
 unsigned int mtk_spm_read_register(int register_index)
 {
 	if (register_index == SPM_PWRSTA)
 		return spm_read(PWR_STATUS);
 	else if (register_index == SPM_MD1_PWR_CON)
 		return spm_read(MD1_PWR_CON);
-	else if (register_index == SPM_REG13)
+	else if (register_index == SPM_REG)
 		return spm_read(PCM_REG13_DATA);
 	else if (register_index == SPM_SPARE_ACK_MASK)
 		return spm_read(SPARE_ACK_MASK);
