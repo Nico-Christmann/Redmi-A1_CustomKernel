@@ -17,7 +17,7 @@
 #include <mtk_spm_reg.h>
 #include "pwr_ctrl.h"
 //FIXME
-#include <mtk_spm.h>
+#include "mtk_spm.h"
 
 
 /* IMPORTANT NOTE: Check cpuidle header file version every time !! */
