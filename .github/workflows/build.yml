@@ -19,7 +19,7 @@ jobs:
 
 
         
-    - run: "PATH=/home/runner/work/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH ARCH=arm ARCH_MTK_PLATFORM=mt6761 CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=/home/runner/work CLANG_PREBUILT_BIN=/home/runner/work/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip make -j$(nproc) -i -k"
+    - run: "PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH ARCH=arm ARCH_MTK_PLATFORM=mt6761 CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=$(pwd) CLANG_PREBUILT_BIN=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip make -j$(nproc) -i -k"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
