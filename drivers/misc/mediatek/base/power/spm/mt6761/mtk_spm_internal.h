@@ -14,7 +14,7 @@
 #include <mt-plat/sync_write.h>
 #include <mt-plat/aee.h>
 
-#include <mtk_spm_reg.h>
+#include "mtk_spm_reg.h"
 #include "pwr_ctrl.h"
 //FIXME
 #include "mtk_spm.h"
