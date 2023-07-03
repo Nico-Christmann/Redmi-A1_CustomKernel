@@ -13,8 +13,8 @@
 
 //#include <trace/events/mtk_idle_event.h>
 
-#include <mtk_idle.h> /* IDLE_TYPE_xxx */
-#include <mtk_idle_internal.h>
+#include "mtk_idle.h" /* IDLE_TYPE_xxx */
+#include "mtk_idle_internal.h"
 
 #include "mtk_spm_internal.h"
 
