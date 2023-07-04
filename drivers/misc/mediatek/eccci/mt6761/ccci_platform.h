@@ -10,8 +10,8 @@
 #include <mt-plat/sync_write.h>
 #include "ccci_config.h"
 #include "../ccci_common_config.h"
-#include "../modem_sys.h"
-#include "hif/ccci_hif_cldma.h"
+#include "modem_sys.h"
+#include "../hif/ccci_hif_cldma.h"
 
 extern unsigned int devapc_check_flag;
 
