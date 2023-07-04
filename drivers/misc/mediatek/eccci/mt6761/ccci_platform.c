@@ -17,8 +17,8 @@
 #include <mt-plat/mtk_ccci_common.h>
 #include "ccci_config.h"
 #include "../ccci_common_config.h"
-#include "ccci_modem.h"
-#include "ccci_bm.h"
+#include "../ccci_modem.h"
+#include "../ccci_bm.h"
 #include "ccci_platform.h"
 
 #ifdef FEATURE_USING_4G_MEMORY_API
