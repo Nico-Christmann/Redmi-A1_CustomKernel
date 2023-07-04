@@ -27,7 +27,7 @@
 #include <mtk_spm_vcore_dvfs.h>
 #endif
 
-#include <dramc_io.h>
+#include "dramc_io.h"
 #include "mtk_dramc.h"
 #include "dramc.h"
 #ifdef EMI_READY
