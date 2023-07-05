@@ -24,7 +24,7 @@ jobs:
     - uses: "actions/checkout@v2"
     - run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
     - run: |
-        if ! stat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10 then sudo wget https://github.com/llvm/llvm-projct/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz && sudo xzcat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | sudo tar -x; fi && sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y binutils gcc-arm-linux-gnueabi build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl unzip
+        if ! stat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10; then sudo wget https://github.com/llvm/llvm-projct/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz && sudo xzcat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | sudo tar -x; fi sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y binutils gcc-arm-linux-gnueabi build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl unzip
         sudo ls clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin
     - run: "sudo cp .config buildcache/.config && sudo PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH ARCH=arm ARCH_MTK_PLATFORM=mt6761 CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=$(pwd) CLANG_PREBUILT_BIN=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip O=buildcache make -j$(nproc) || true"
     - uses: "marvinpinto/action-automatic-releases@latest"
