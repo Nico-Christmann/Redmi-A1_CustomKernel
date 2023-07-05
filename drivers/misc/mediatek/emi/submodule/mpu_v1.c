@@ -23,14 +23,14 @@
 
 #include <emi.h>
 #include <emi_io.h>
-#include <mt_emi.h>
+#include "../mt6761/mt_emi.h"
 #include "mpu_v1.h"
 #include <mpu_platform.h>
 
 _Static_assert(EMI_MPU_DOMAIN_NUM <= 2048, "EMI_MPU_DOMAIN_NUM is over 2048");
 _Static_assert(EMI_MPU_REGION_NUM <= 256, "EMI_MPU_REGION_NUM is over 256");
 
-#if EMI_MPU_TEST
+#if EMI_MPU_TESTb
 char mpu_test_buf[0x20000] __aligned(PAGE_SIZE);
 #endif
 
