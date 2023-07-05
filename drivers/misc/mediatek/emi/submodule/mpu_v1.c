@@ -30,7 +30,7 @@
 _Static_assert(EMI_MPU_DOMAIN_NUM <= 2048, "EMI_MPU_DOMAIN_NUM is over 2048");
 _Static_assert(EMI_MPU_REGION_NUM <= 256, "EMI_MPU_REGION_NUM is over 256");
 
-#if EMI_MPU_TESTb
+#if EMI_MPU_TEST
 char mpu_test_buf[0x20000] __aligned(PAGE_SIZE);
 #endif
 
