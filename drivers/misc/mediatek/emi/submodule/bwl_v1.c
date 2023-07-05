@@ -13,7 +13,7 @@
 #include <mt-plat/sync_write.h>
 
 #include <emi_io.h>
-#include <mt_emi.h>
+#include "../mt_emi.h"
 #include <bwl_platform.h>
 #include "bwl_v1.h"
 #if DBG_INFO_READY
