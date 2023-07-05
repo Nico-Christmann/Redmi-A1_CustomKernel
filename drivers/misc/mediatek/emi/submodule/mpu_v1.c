@@ -25,7 +25,7 @@
 #include <emi_io.h>
 #include "../mt6761/mt_emi.h"
 #include "mpu_v1.h"
-#include <mpu_platform.h>
+#include "../mt6761/mpu_platform.h"
 
 _Static_assert(EMI_MPU_DOMAIN_NUM <= 2048, "EMI_MPU_DOMAIN_NUM is over 2048");
 _Static_assert(EMI_MPU_REGION_NUM <= 256, "EMI_MPU_REGION_NUM is over 256");
