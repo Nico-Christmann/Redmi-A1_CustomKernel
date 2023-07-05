@@ -11,11 +11,10 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
     
-    - name: Cache
-      uses: actions/cache@v1.2.1
-        with:
-          path: buildcache
-          key: buildcache
+    - uses: actions/cache@v1.2.1
+      with:
+        path: buildcache
+        key: buildcache
     
     - uses: "actions/checkout@v2"
     - run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
