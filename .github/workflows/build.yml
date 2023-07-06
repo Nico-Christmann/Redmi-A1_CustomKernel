@@ -28,7 +28,7 @@ jobs:
         sudo ls clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin
         wget github.com/Happynico7504/Xiaomi_Kernel_OpenSource/releases/download/build/buildcache.tar.gz && sudo zcat buildcache.tar.gz | sudo tar -x || true
 
-    - run: "sudo cp .config buildcache/.config && sudo PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH KBUILD_OUTPUT=buildcache ARCH=arm ARCH_MTK_PLATFORM=mt6761 CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=$(pwd) CLANG_PREBUILT_BIN=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip make -j$(nproc) || true"
+    - run: "sudo PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH KBUILD_OUTPUT=buildcache ARCH=arm ARCH_MTK_PLATFORM=mt6761 CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=$(pwd) CLANG_PREBUILT_BIN=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip make -j$(nproc) || true"
     - run: "sudo tar -c buildcache | gzip -9 > buildcache.tar.gz"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
