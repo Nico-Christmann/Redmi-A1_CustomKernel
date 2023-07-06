@@ -11,10 +11,10 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
     
-    - uses: actions/cache@v1.2.1
-      with:
-        path: buildcache
-        key: outputcache
+
+
+
+
         
     - uses: actions/cache@v1.2.1
       with:
@@ -26,8 +26,10 @@ jobs:
     - run: |
         if ! sudo stat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin; then sudo wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz && sudo xzcat clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz | sudo tar -x; fi; sudo apt-get update && sudo apt-get install -y binutils gcc-arm-linux-gnueabi build-essential git flex bison libssl-dev bc libgmp-dev libmpc-dev jq wget curl unzip
         sudo ls clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin
-        gh actions-cache delete outputcache -R Happynico7504/Xiaomi_Kernel_OpenSource -B ice-s-oss --confirm
+        curl github.com/Happynico7504/Xiaomi_Kernel_OpenSource/releases/download/build/buildcache.tar.gz | sudo gzip -d | sudo tar -x || true
+
     - run: "sudo cp .config buildcache/.config && sudo PATH=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin:$PATH ARCH=arm ARCH_MTK_PLATFORM=mt6761 CROSS_COMPILE=arm-linux-gnueabi- LLVM=1 KERNEL_DIR=$(pwd) CLANG_PREBUILT_BIN=$(pwd)/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=/usr/bin CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip 0=buildcache make -j$(nproc) || true"
+    - run: "sudo tar -c buildcache | gzip -9 > buildcache.tar.gz"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -40,3 +42,4 @@ jobs:
           buildcache/arch/arm/boot/Image.gz
           buildcache/.config
           clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz
+          buildcache.tar.gz
