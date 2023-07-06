@@ -14,12 +14,12 @@ jobs:
     - uses: actions/cache@v1.2.1
       with:
         path: buildcache
-        key: outputcache-${{ hashFiles('buildcache') }}
+        key: outputcache
         
     - uses: actions/cache@v1.2.1
       with:
         path: clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10
-        key: dlcache-${{ hashFiles('clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10') }}
+        key: dlcache
     
     - uses: "actions/checkout@v2"
     - run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
