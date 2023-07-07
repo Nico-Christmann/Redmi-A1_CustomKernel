@@ -376,7 +376,7 @@ KBUILD_HOSTLDLIBS   := $(HOST_LFS_LIBS) $(HOSTLDLIBS)
 CPP		= $(CC) -E
 ifneq ($(LLVM),)
 CC		= clang
-LD		= ld
+LD		= ld.lld
 AR		= llvm-ar
 NM		= llvm-nm
 OBJCOPY		= llvm-objcopy
@@ -405,7 +405,7 @@ PERL		= perl
 PYTHON		= python
 PYTHON2		= python2
 PYTHON3		= python3
-CHECK		= sparse
+CHECK		= llvm-sparse
 
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void -Wno-unknown-attribute $(CF)
