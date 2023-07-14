@@ -60,7 +60,7 @@ int primary_display_get_max_refresh_rate(void)
 		(pgc->plcm->params->max_refresh_rate != 0))
 		ret = pgc->plcm->params->max_refresh_rate;
 	else
-		ret = 60;
+		ret = 1000;
 	/* _primary_path_unlock(__func__); */
 
 	return ret;
@@ -75,7 +75,7 @@ int primary_display_get_min_refresh_rate(void)
 		(pgc->plcm->params->min_refresh_rate != 0))
 		ret = pgc->plcm->params->min_refresh_rate;
 	else
-		ret = 60;
+		ret = 1;
 	/* _primary_path_unlock(__func__); */
 
 	return ret;
