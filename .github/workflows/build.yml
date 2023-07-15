@@ -29,6 +29,7 @@ jobs:
         files: |
           buildcache/arch/arm/boot/Image
           buildcache/arch/arm/boot/zImage
+          buildcache/arch/arm/boot/dts/ice.dtb
           buildcache/.config
           clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10.tar.xz
           buildcache.tar.gz
