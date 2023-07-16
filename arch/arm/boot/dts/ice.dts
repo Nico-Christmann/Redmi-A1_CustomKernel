@@ -360,7 +360,7 @@
 };
 /* AUDIO end */
 
-#include <ice/cust.dtsi>
+//#include <ice/cust.dtsi>
 #include "cust_mt6761_camera.dtsi"
 //#include "cust_mt6761_touch_720x1280.dtsi"
 #include "custom_common.dtsi"
