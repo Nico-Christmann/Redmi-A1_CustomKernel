@@ -92,7 +92,7 @@ static void layering_rule_senario_decision(unsigned int scn_decision_flag,
 			 l_rule_info.addon_scn[0], l_rule_info.layer_tb_idx |
 			 (l_rule_info.bound_tb_idx << 16));
 #endif
-	l_rule_info.primary_fps = 60;
+	l_rule_info.primary_fps = 250;
 	l_rule_info.bound_tb_idx = HRT_BOUND_TYPE_LP4;
 
 	if (scn_decision_flag & SCN_NEED_GAME_PQ)
@@ -449,7 +449,7 @@ void mtk_layering_rule_init(struct drm_device *dev)
 {
 	struct mtk_drm_private *private = dev->dev_private;
 
-	l_rule_info.primary_fps = 60;
+	l_rule_info.primary_fps = 250;
 	l_rule_info.hrt_idx = 0;
 	mtk_register_layering_rule_ops(&l_rule_ops, &l_rule_info);
 
