@@ -17,9 +17,9 @@
 #define GPU_DVFS_VOLT1			(85000)	 /* mV x 100 */
 #define GPU_DVFS_VOLT2			(50000)	 /* mV x 100 */
 
-#define GPU_DVFS_VSRAM0			(80000)	/* mV x 100 */
-#define GPU_DVFS_VSRAM1			(80000)	/* mV x 100 */
-#define GPU_DVFS_VSRAM2			(80000)	/* mV x 100 */
+#define GPU_DVFS_VSRAM0			(90000)	/* mV x 100 */
+#define GPU_DVFS_VSRAM1			(92500)	/* mV x 100 */
+#define GPU_DVFS_VSRAM2			(95000)	/* mV x 100 */
 
 
 /**************************************************
