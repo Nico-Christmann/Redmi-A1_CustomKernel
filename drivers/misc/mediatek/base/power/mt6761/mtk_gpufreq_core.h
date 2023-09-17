@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 */
 /*
- * Copyright (c) 2017 MediaTek Inc.
+ * Copyright (C) 2019 MediaTek Inc.
  */
 
 #ifndef _MT_GPUFREQ_CORE_H_
@@ -9,17 +9,17 @@
 /**************************************************
  * MT6761 : GPU DVFS OPP table Setting
  **************************************************/
-#define GPU_DVFS_FREQ0			(900000)/* KHz */
-#define GPU_DVFS_FREQ1			(450000) /* KHz */
-#define GPU_DVFS_FREQ2			(150000) /* KHz */
+#define GPU_DVFS_FREQ0			(750000)/* KHz */
+#define GPU_DVFS_FREQ1			(350000)/* KHz */
+#define GPU_DVFS_FREQ2			(150000)/* KHz */
 
-#define GPU_DVFS_VOLT0			(100000) /* mV x 100 */
-#define GPU_DVFS_VOLT1			(90000)	 /* mV x 100 */
-#define GPU_DVFS_VOLT2			(50000)	 /* mV x 100 */
+#define GPU_DVFS_VOLT0			(150000)        /* mV x 100 */
+#define GPU_DVFS_VOLT1			(125000)	/* mV x 100 */
+#define GPU_DVFS_VOLT2			(100000)	/* mV x 100 */
 
-#define GPU_DVFS_VSRAM0			(90000)	 /* mV x 100 */
-#define GPU_DVFS_VSRAM1			(80000)	 /* mV x 100 */
-#define GPU_DVFS_VSRAM2			(70000)	 /* mV x 100 */
+#define GPU_DVFS_VSRAM0			(90000)	/* mV x 100 */
+#define GPU_DVFS_VSRAM1			(80000)	/* mV x 100 */
+#define GPU_DVFS_VSRAM2			(70000)	/* mV x 100 */
 
 /**************************************************
  * MT6762M segment_1 : GPU DVFS OPP table Setting
@@ -136,14 +136,14 @@
 #define GPU_ACT_REF_POWER			(1285)		/* mW  */
 #define GPU_ACT_REF_FREQ			(900000)	/* KHz */
 #define GPU_ACT_REF_VOLT			(90000)		/* mV x 100 */
-#define GPU_DVFS_PTPOD_DISABLE_VOLT		(80000)		/* mV x 100 */
+#define GPU_DVFS_PTPOD_DISABLE_VOLT		(65000)		/* mV x 100 */
 
 /**************************************************
  * Log Setting
  **************************************************/
-#define GPUFERQ_TAG "[GPU/DVFS]"
+#define GPUFERQ_TAG "[GPU/FREQ]"
 #define gpufreq_perr(fmt, args...)\
-	pr_debug(GPUFERQ_TAG"[ERROR]"fmt, ##args)
+	pr_err(GPUFERQ_TAG"[ERROR]"fmt, ##args)
 #define gpufreq_pwarn(fmt, args...)\
 	pr_debug(GPUFERQ_TAG"[WARNING]"fmt, ##args)
 #define gpufreq_pr_info(fmt, args...)\
@@ -151,34 +151,32 @@
 #define gpufreq_pr_debug(fmt, args...)\
 	pr_debug(GPUFERQ_TAG"[DEBUG]"fmt, ##args)
 
+#define GPUFREQ_UNREFERENCED(param) ((void)(param))
+
 /**************************************************
  * Condition Setting
  **************************************************/
 #define MT_GPUFREQ_OPP_STRESS_TEST
-/* #define MT_GPUFREQ_STATIC_PWR_READY2USE */
-#define MT_GPUFREQ_LOW_BATT_VOLT_PROTECT
-#define MT_GPUFREQ_BATT_PERCENT_PROTECT /* todo: disable it */
-#define MT_GPUFREQ_BATT_OC_PROTECT
 #define MT_GPUFREQ_DYNAMIC_POWER_TABLE_UPDATE
 
 /**************************************************
  * Battery Over Current Protect
  **************************************************/
-#ifdef MT_GPUFREQ_BATT_OC_PROTECT
+#if IS_ENABLED(CONFIG_MTK_BATTERY_OC_POWER_THROTTLING)
 #define MT_GPUFREQ_BATT_OC_LIMIT_FREQ			(485000)/* KHz */
 #endif
 
 /**************************************************
  * Battery Percentage Protect
  **************************************************/
-#ifdef MT_GPUFREQ_BATT_PERCENT_PROTECT
+#if IS_ENABLED(CONFIG_MTK_BATTERY_PERCENTAGE_POWER_THROTTLING)
 #define MT_GPUFREQ_BATT_PERCENT_LIMIT_FREQ		(485000)/* KHz */
 #endif
 
 /**************************************************
  * Low Battery Volume Protect
  **************************************************/
-#ifdef MT_GPUFREQ_LOW_BATT_VOLT_PROTECT
+#if IS_ENABLED(CONFIG_MTK_LOW_BATTERY_POWER_THROTTLING)
 #define MT_GPUFREQ_LOW_BATT_VOLT_LIMIT_FREQ		(485000)/* KHz */
 #endif
 
@@ -284,7 +282,7 @@ struct g_pmic_info {
 	struct regulator *reg_vgpu;
 	struct regulator *reg_vsram_gpu;
 	struct regulator *reg_vcore;
-	struct pm_qos_request pm_vgpu;
+	struct mtk_pm_qos_request mtk_pm_vgpu;
 };
 
 /**************************************************
@@ -292,9 +290,6 @@ struct g_pmic_info {
  **************************************************/
 extern bool mtk_get_gpu_loading(unsigned int *pLoading);
 extern unsigned int mt_get_ckgen_freq(unsigned int ckgen);
-extern u32 get_devinfo_with_index(u32 index);
-
 extern int (*mt_dfs_general_pll)(unsigned int pll_id, unsigned int dds);
-
 
 #endif /* _MT_GPUFREQ_CORE_H_ */
