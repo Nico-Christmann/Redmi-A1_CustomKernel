@@ -52,7 +52,7 @@ static unsigned int fy2Tbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	/* Freq, Vproc, post_div, clk_div */
         { 2050, 70, 1, 1 },	/* LL */
 	{ 2025, 70, 1, 1 },
-	{ 2015 70, 1, 1 },
+	{ 2015, 70, 1, 1 },
 	{ 1767, 67, 1, 1 },
 	{ 1700, 63, 1, 1 },
 	{ 1633, 59, 1, 1 },
