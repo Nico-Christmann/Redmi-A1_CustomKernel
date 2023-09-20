@@ -10,9 +10,9 @@
 
 static unsigned int fyTbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	/* Freq, Vproc, post_div, clk_div */
-	{ 3500, 95, 1, 1 },	/* LL */
-	{ 3000, 95, 1, 1 },
+	{ 2800, 95, 1, 1 },	/* LL */
 	{ 2500, 95, 1, 1 },
+	{ 2200, 95, 1, 1 },
 	{ 1767, 67, 1, 1 },
 	{ 1700, 63, 1, 1 },
 	{ 1633, 59, 1, 1 },
@@ -23,16 +23,16 @@ static unsigned int fyTbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	{ 1216, 37, 2, 1 },
 	{ 1125, 33, 2, 1 },
 	{ 1056, 30, 2, 1 },
-	{  750, 25, 2, 1 },
+	{  900, 25, 2, 1 },
 	{  700, 25, 2, 1 },
-	{  650, 25, 2, 1 },
+	{  500, 25, 2, 1 },
 };
 
 static unsigned int sbTbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	/* Freq, Vproc, post_div, clk_div */
-        { 3500, 95, 1, 1 },	/* LL */
-	{ 3000, 95, 1, 1 },
+        { 2800, 95, 1, 1 },	/* LL */
 	{ 2500, 95, 1, 1 },
+	{ 2200, 95, 1, 1 },
 	{ 1889, 67, 1, 1 },
 	{ 1800, 63, 1, 1 },
 	{ 1711, 59, 1, 1 },
@@ -44,15 +44,15 @@ static unsigned int sbTbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	{ 1216, 37, 2, 1 },
 	{ 1125, 33, 2, 1 },
 	{ 1033, 29, 2, 1 },
-	{ 750, 25, 2, 1 },
-	{ 650, 25, 2, 1 },
+	{ 900, 25, 2, 1 },
+	{ 500, 25, 2, 1 },
 };
 
 static unsigned int fy2Tbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	/* Freq, Vproc, post_div, clk_div */
-        { 3500, 95, 1, 1 },	/* LL */
-	{ 3000, 95, 1, 1 },
+        { 2800, 95, 1, 1 },	/* LL */
 	{ 2500, 95, 1, 1 },
+	{ 2200, 95, 1, 1 },
 	{ 1767, 67, 1, 1 },
 	{ 1700, 63, 1, 1 },
 	{ 1633, 59, 1, 1 },
@@ -63,16 +63,16 @@ static unsigned int fy2Tbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	{ 1216, 45, 2, 1 },
 	{ 1125, 45, 2, 1 },
 	{ 1056, 45, 2, 1 },
-	{  750, 40, 2, 1 },
+	{  900, 40, 2, 1 },
 	{  700, 40, 2, 1 },
-	{  650, 40, 2, 1 },
+	{  500, 40, 2, 1 },
 };
 
 static unsigned int LiteTbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	/* Freq, Vproc, post_div, clk_div */
-	{ 3500, 95, 1, 1 },	/* LL */
-	{ 3000, 95, 1, 1 },
+	{ 2800, 95, 1, 1 },	/* LL */
 	{ 2500, 95, 1, 1 },
+	{ 2200, 95, 1, 1 },
 	{ 1700, 63, 1, 1 },
 	{ 1667, 61, 1, 1 },
 	{ 1633, 59, 1, 1 },
@@ -83,9 +83,9 @@ static unsigned int LiteTbl[NR_FREQ * NR_MT_CPU_DVFS][ARRAY_COL_SIZE] = {
 	{ 1216, 37, 2, 1 },
 	{ 1125, 33, 2, 1 },
 	{ 1056, 30, 2, 1 },
-	{  750, 25, 2, 1 },
+	{  900, 25, 2, 1 },
 	{  700, 25, 2, 1 },
-	{  650, 25, 2, 1 },
+	{  500, 25, 2, 1 },
 };
 
 unsigned int *xrecordTbl[NUM_CPU_LEVEL] = {	/* v0.3 */
